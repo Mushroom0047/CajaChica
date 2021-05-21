@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tvFechaActual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Fecha" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        >
+
+        <ImageButton
+            android:id="@+id/imgBtnDetalleUsuario"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:src="@mipmap/ic_user" />
+
+        <TextView
+            android:id="@+id/tvSaludoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre usuario"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:layout_weight="2"
+            />
+
+        <ImageButton
+            android:id="@+id/imgBtnSalir"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:src="@mipmap/ic_power_down" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/sky"
+            android:textColor="@color/white"
+            android:text="Nuevo usuario" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="30sp"
+        >
+        <Button
+            android:drawableLeft="@drawable/ic_ingreso"
+            android:id="@+id/btnNuevoIngreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="Nuevo Ingreso"
+            android:padding="12dp"
+            android:layout_marginStart="30dp"
+            />
+
+        <Button
+            android:id="@+id/btnNuevoGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:text="Nuevo Gasto"
+            android:drawableRight="@drawable/ic_gasto"
+            android:textColor="@color/white"
+            android:layout_marginEnd="30dp"
+            android:padding="12dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        tools:ignore="MissingConstraints"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="Listados"
+        android:textSize="25sp"
+         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="30sp">
+
+        <Button
+            android:id="@+id/btnListadoIngresos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:text="Ingresos"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_weight="1"
+             />
+
+        <Button
+            android:id="@+id/btnListadoGastos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:text="Gastos"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:layout_marginEnd="30dp"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Detalle"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnReloadInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_reload"
+            android:backgroundTint="@color/grey"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvIngresosDetalle"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Ingresos Totales:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvIngresosEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/green"
+            android:textSize="28dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvGastosDetalle"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Gastos Totales:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvGastosEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/red"
+            android:textSize="28dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvDiferenciaDetalle"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Saldo:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvDiferenciaEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/yellow"
+            android:textSize="28dp"
+            android:text="0" />
+    </LinearLayout>
+
+</LinearLayout>

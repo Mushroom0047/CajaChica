@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imgBtnAtrasNuevoGasto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="0dp"
+            android:src="@mipmap/ic_back_round"
+             />
+
+        <TextView
+            android:id="@+id/tvListadoGastos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Gastos"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="25sp"
+             />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="Categoria:" />
+
+        <Spinner
+            android:id="@+id/spinnerCategoriaGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnNuevaCatGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:text="Nueva"
+            android:textColor="@color/white"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/red"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="Valor $:"
+             />
+
+        <EditText
+            android:id="@+id/etValorGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberSigned"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="Descripción:"
+            />
+
+        <EditText
+            android:id="@+id/etDescripsionGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="(Opcional)"
+            android:inputType="textMultiLine"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="Fecha:"
+             />
+
+        <EditText
+            android:id="@+id/etFechaGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            android:maxLines="1"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="Foto(Opcional):"
+            />
+
+        <Button
+            android:id="@+id/btnAdjFotoGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="50sp"
+            android:text="Adjuntar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/red"
+             />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgCamaraGasto"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGuardarGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginStart="40dp"
+            />
+
+        <Button
+            android:id="@+id/btnLimpiarGasto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limpiar"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_marginEnd="40dp"
+             />
+    </LinearLayout>
+
+</LinearLayout>
