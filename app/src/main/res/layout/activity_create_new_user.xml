@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Cuenta de usuario"
+            android:text="Registro de usuario"
             android:textSize="25sp" />
     </LinearLayout>
 
@@ -35,30 +35,55 @@
         android:layout_height="1dp"
         android:layout_marginBottom="30dp"
         android:background="?android:attr/listDivider"
-       />
+        />
 
     <EditText
+        android:id="@+id/etNewNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Nombre"
         android:inputType="textPersonName"
-        android:text=""
-        android:hint="Nombre"/>
+        android:text="" />
 
     <EditText
+        android:id="@+id/etNewApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Apellido"
         android:inputType="textPersonName"
-        android:text=""
-        android:hint="Apellido"/>
+        android:text="" />
 
     <EditText
+        android:id="@+id/etNewFechaNac"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Contrseña"/>
+        android:hint="Fecha nacimiento"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/etNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/etNewPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Confirme contraseña"
+        android:inputType="textPassword" />
+
+    <Switch
+        android:id="@+id/swTipoUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administrador" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Guardar cambios"
+            android:text="Registrar"
             android:textColor="@color/white"
             android:backgroundTint="@color/green"/>
 
@@ -84,12 +109,4 @@
             android:backgroundTint="@color/grey"/>
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/sky"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:textColor="@color/white"
-        android:text="Cerra sesión" />
 </LinearLayout>

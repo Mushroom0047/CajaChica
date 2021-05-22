@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bgeugcom"
     tools:context=".Project.View.ListadoGastos">
 
 
@@ -19,32 +20,26 @@
             android:layout_height="60dp"
             android:padding="0dp"
             android:src="@mipmap/ic_back_round"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
 
         <TextView
-            android:id="@+id/tvListadoGastos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Listado Gastos"
+            android:layout_marginTop="8dp"
             android:textSize="25dp"
             android:layout_marginStart="30sp"
-            tools:layout_editor_absoluteX="152dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
     </LinearLayout>
 
     <View
-        android:id="@+id/divider4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="75dp" />
+        android:background="?android:attr/listDivider" />
 
     <ListView
         android:id="@+id/lvListadoGastos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp" />
+        android:padding="12dp" />
 </LinearLayout>

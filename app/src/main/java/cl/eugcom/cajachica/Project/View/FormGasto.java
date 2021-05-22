@@ -1,8 +1,5 @@
 package cl.eugcom.cajachica.Project.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -24,11 +21,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import java.io.IOException;
-import java.util.List;
 
 import cl.eugcom.cajachica.Project.Controller.Controller;
-import cl.eugcom.cajachica.Project.Model.Category;
 import cl.eugcom.cajachica.Project.Model.DatePickerFragment;
 import cl.eugcom.cajachica.R;
 
@@ -42,13 +40,11 @@ public class FormGasto extends AppCompatActivity implements View.OnClickListener
     Intent intentGasto;
     public ImageView imgCamaraGas;
 
-    private static final String URL_REG = "http://movil.ventascloud.cl/RegistroGasto.php?";
     private static final int COD_SELECCIONADO = 10;
     private static final int REQUEST_PERMISION_CAMERA = 101;
     public Bitmap bitmap;
     private final int PHOTO_CODE = 200;
 
-    private static final String DIRECTORIO_IMAGEN = "http://movil.ventascloud.cl/ImagenConNombre/upload";
 
 
     @Override
@@ -58,6 +54,7 @@ public class FormGasto extends AppCompatActivity implements View.OnClickListener
         //Inicialize variables
         initVar();
 
+
         // Fill the spinner with categorys
         spinCatSpend.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Controller.listSpend));
     }
@@ -65,6 +62,8 @@ public class FormGasto extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
+        // Fill category list
+        Controller.fillSpendCategory(getApplicationContext());
 
         // Go back
         btnBack.setOnClickListener(this);
