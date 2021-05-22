@@ -46,15 +46,19 @@ String ingreso = "", gasto = "";
         // Check network
         if(Controller.isNetworkConnected(getApplicationContext())){
             Toast.makeText(this, "Conectado !", Toast.LENGTH_SHORT).show();
-            //Fill the categorys
-            Controller.fillCategorysOnline(getApplicationContext());
             // Update details
             updateDetails();
+
+            // Update list of category
+            Controller.fillIncomeCategory(this);
+            Controller.fillSpendCategory(this);
         }else{
             Toast.makeText(this, "ups! no tienes internet", Toast.LENGTH_SHORT).show();
         }
         //Init var
         initVar();
+
+
 
         //Update date
         Date d = new Date();

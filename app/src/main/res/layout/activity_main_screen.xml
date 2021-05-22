@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgeugcom"
     android:orientation="vertical"
     >
 
@@ -52,7 +53,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/divider5"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
@@ -77,8 +77,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="30sp"
-        android:layout_marginBottom="30sp"
         >
         <Button
             android:drawableLeft="@drawable/ic_ingreso"
@@ -108,18 +106,15 @@
 
 
     <View
-        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
-        tools:ignore="MissingConstraints"
         />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:text="Listados"
         android:textSize="25sp"
          />
@@ -128,9 +123,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30sp"
-        android:layout_marginBottom="30sp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnListadoIngresos"
@@ -157,7 +150,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
@@ -169,7 +161,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -187,7 +178,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
@@ -201,7 +191,7 @@
             android:id="@+id/tvIngresosDetalle"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:padding="10dp"
             android:text="Ingresos Totales:"
             android:textSize="20sp" />
 
@@ -224,7 +214,7 @@
             android:id="@+id/tvGastosDetalle"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:padding="10dp"
             android:text="Gastos Totales:"
             android:textSize="20sp" />
 
@@ -247,7 +237,7 @@
             android:id="@+id/tvDiferenciaDetalle"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:padding="10dp"
             android:text="Saldo:"
             android:textSize="20sp" />
 

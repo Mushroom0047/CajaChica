@@ -1,27 +1,16 @@
 package cl.eugcom.cajachica.Project.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,24 +21,16 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import cl.eugcom.cajachica.Project.Controller.Controller;
-import cl.eugcom.cajachica.Project.Model.Category;
 import cl.eugcom.cajachica.Project.Model.DatePickerFragment;
 import cl.eugcom.cajachica.R;
 
 import static android.Manifest.permission.CAMERA;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class FormIngreso extends AppCompatActivity implements View.OnClickListener{
     public Spinner spinCatIncome;
@@ -73,6 +54,9 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
         //Set adapter
         Controller.initialVolley(getApplicationContext());
 
+        // Fill category list
+        Controller.fillIncomeCategory(getApplicationContext());
+
         //Inicialize variables
         initVar();
         spinCatIncome.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Controller.listIncome));
@@ -81,7 +65,8 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
-
+        // Fill category list
+        Controller.fillIncomeCategory(getApplicationContext());
         //Go Back to main menu
         btnBack.setOnClickListener(this);
         // Go to Add new category menu

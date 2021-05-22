@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bgeugcom"
     tools:context=".Project.View.ListadoIngreso">
 
 
@@ -18,31 +19,23 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="0dp"
+            android:layout_marginEnd="30dp"
             android:src="@mipmap/ic_back"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp" />
+            />
 
         <TextView
-            android:id="@+id/tvListadoGastos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
+            android:layout_marginTop="8dp"
             android:text="Listado Ingresos"
             android:textSize="25dp"
-            tools:layout_editor_absoluteX="152dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
     </LinearLayout>
 
     <View
-        android:id="@+id/divider4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="75dp" />
+        android:background="?android:attr/listDivider"/>
 
     <ListView
         android:id="@+id/lvListadoIngresos"
