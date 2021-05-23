@@ -3,15 +3,16 @@ package cl.eugcom.cajachica.Project.Model;
 public class Category {
     private String id_ga, id_in, nombre_in, nombre_ga;
 
+
     public Category(){
     }
     public void createIn(String id_i, String nombre){
-        this.id_in = id_i;
-        this.nombre_in = nombre;
+        setId_in(id_i);
+        setNombre_in(nombre);
     }
     public void createGa(String id_g, String nombre){
-        this.id_ga = id_g;
-        this.nombre_ga = nombre;
+        setId_ga(id_g);
+        setNombre_ga(nombre);
     }
 
     public String getId_ga() {

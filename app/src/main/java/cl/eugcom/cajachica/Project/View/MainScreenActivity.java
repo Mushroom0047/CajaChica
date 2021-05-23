@@ -44,7 +44,7 @@ String ingreso = "", gasto = "";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         // Check network
-        if(Controller.isNetworkConnected(getApplicationContext())){
+        if(!Controller.isNetworkConnected(getApplicationContext())){
             Toast.makeText(this, "Conectado !", Toast.LENGTH_SHORT).show();
             // Update details
             updateDetails();

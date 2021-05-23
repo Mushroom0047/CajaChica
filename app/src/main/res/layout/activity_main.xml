@@ -40,12 +40,20 @@
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingStart="45dp"
+        app:srcCompat="@drawable/login" />
+
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:ems="10"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:hint="Correo"
         android:inputType="textWebEmailAddress" />
 
@@ -53,8 +61,9 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:ems="10"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:hint="Contraseña"
         android:inputType="textPassword" />
 

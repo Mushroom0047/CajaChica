@@ -51,15 +51,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnNuevaCatGasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="0dp"
-            android:text="Nueva"
-            android:textColor="@color/white"
+            android:background="@drawable/addbutton"
             android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/red"
             />
 
     </LinearLayout>
@@ -138,17 +135,16 @@
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="Foto(Opcional):"
+            android:layout_marginTop="20dp"
             />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnAdjFotoGasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginStart="50sp"
-            android:text="Adjuntar"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/red"
+            android:background="@drawable/foto"
              />
     </LinearLayout>
 

@@ -3,7 +3,7 @@ package cl.eugcom.cajachica.Project.Controller;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.service.controls.Control;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,6 +43,7 @@ public class Controller {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = connectivityManager.getActiveNetworkInfo();
         if (info == null || !info.isConnected() || !info.isAvailable()) {
+            Log.i("TAG_", info.toString()+"|"+ info.isConnected() + "|"+ info.isAvailable());
             return false;
         }
         return true;
@@ -56,7 +57,8 @@ public class Controller {
         return frequestQueue;
     }
 
-    // User
+
+    // Request User
     public static void setUser(User u){
         user = u;
     }
@@ -64,48 +66,87 @@ public class Controller {
         return user;
     }
 
-    // Fill the local list of categorys
-    public static void fillCategorysOnline(Context context){
+    //Send request
+    public static void sendCategoryRequest(){
+
+    }
+    // Check if income exist
+    public static Boolean ifExistIncome(String income){
+        boolean result = false;
+        for(int i=0;i<listIncome.size();i++){
+            if(listIncome.get(i).equals(income)){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+    // Check if spend exist
+    public static Boolean ifExistSpend(String spend){
+        boolean result = false;
+        for(int i=0;i<listSpend.size();i++){
+            if(listSpend.get(i).equals(spend)){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static void fillIncomeCategory(Context context) {
         initialVolley(context);
+        String[] data = {"", ""};
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                ConstantValues.URL_LISTA_CATEGORIA_INGRESOS+getUser().getId(),
+                ConstantValues.URL_LISTA_CATEGORIA_INGRESOS + getUser().getId(),
                 null,
                 response -> {
-                    JSONArray json=response.optJSONArray("imagenes");
+                    JSONArray json = response.optJSONArray("imagenes");
                     try {
-                        for (int i=0;i<json.length();i++) {
+                        listIncome.clear();
+                        incomesList.clear();
+                        for (int i = 0; i < json.length(); i++) {
                             JSONObject jsonObject = json.getJSONObject(i);
+                            data[0] = jsonObject.optString("id_categoria");
+                            data[1] = jsonObject.optString("nombre_categoria");
                             Category ci = new Category();
-                            ci.createIn(jsonObject.optString("id_categoria"), jsonObject.optString("nombre_categoria"));
+                            ci.createIn(data[0], data[1]);
                             incomesList.add(ci);
                             listIncome.add(ci.getNombre_in());
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest(
-                            Request.Method.GET,
-                            ConstantValues.URL_LISTA_CATEGORIA_GASTO+getUser().getId(),
-                            null,
-                            response1 -> {
-                                JSONArray json1=response1.optJSONArray("imagenes");
-                                try {
-                                    for (int i=0;i<json1.length();i++) {
-                                        JSONObject jsonObject1 = json1.getJSONObject(i);
-                                        Category cg =new Category();
-                                        cg.createGa(jsonObject1.optString("id_categoria_ga"), jsonObject1.optString("nombre_categoria_ga"));
-                                        spendsList.add(cg);
-                                        listSpend.add(cg.getNombre_ga());
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }, error -> {
-                    } );
-                    Controller.getRequestQueue().add(jsonObjectRequest2);
                 }, error -> {
-        } );
+        });
+        Controller.getRequestQueue().add(jsonObjectRequest);
+    }
+    public static void fillSpendCategory(Context context) {
+        initialVolley(context);
+        String[] data = {"", ""};
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                ConstantValues.URL_LISTA_CATEGORIA_GASTO + getUser().getId(),
+                null,
+                response -> {
+                    JSONArray json = response.optJSONArray("imagenes");
+                    try {
+                        listSpend.clear();
+                        spendsList.clear();
+                        for (int i = 0; i < json.length(); i++) {
+                            JSONObject jsonObject = json.getJSONObject(i);
+                            data[0] = jsonObject.optString("id_categoria_ga");
+                            data[1] = jsonObject.optString("nombre_categoria_ga");
+                            Category cg = new Category();
+                            cg.createGa(data[0], data[1]);
+                            spendsList.add(cg);
+                            listSpend.add(cg.getNombre_ga());
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+        });
         Controller.getRequestQueue().add(jsonObjectRequest);
     }
 }

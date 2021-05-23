@@ -6,4 +6,16 @@ public class ConstantValues {
     public static final String URL_LISTA_CATEGORIA_INGRESOS = "http://movil.ventascloud.cl/ConsultarListaCategoria.php?id=";
     public static final String URL_SUMADOR_INGRESOS = "http://movil.ventascloud.cl/sumador.php?id=";
     public static final String URL_SUMADOR_GASTOS = "http://movil.ventascloud.cl/sumadorG.php?id=";
+    /*public static final String URL_REGISTRO_USUARIO = "http://movil.ventascloud.cl/registrar.php?id="+id+"&nombre=" +txtNombre.getText().toString()+"&apellido="+ txtApellido.getText().toString() +
+            "&fechaNacimiento=" + txtFNacimiento.getText().toString()+"&correo="+ txtCorreo.getText().toString()+"&password="+ txtPassowrd.getText().toString()
+            +"&confirmarClave="+ txtConPassword.getText().toString()+"&id_tipo_user="+cad;*/
+    //public static final String URL_CONSULTA_ID + "
+    public static final String URL_REGISTRAR_CATEGORIA_INGRESO = "http://movil.ventascloud.cl/RegistrarCategoria.php?id_categoria=";//+id_cat+"&nombre_categoria="+newCategoria.getText().toString()+"&id="+txId.getText().toString()";
+    public static final String URL_REGISTRAR_CATEGORIA_GASTO = "http://movil.ventascloud.cl/RegistrarCategoriaG.php?id_categoria_ga=";//+id_cat+"&nombre_categoria="+newCategoria.getText().toString()+"&id="+txId.getText().toString()";
+    //public static final string URL_ELIMINAR_CATEGORIA_INGRESO = "http://movil.ventascloud.cl/eliminarCategoria.php?nombre_categoria="+elCategoria.getText().toString()+"id="+txId.getText().toString()";
+    //public static final String URL_ELIMINAR_CATEGORIA_GASTO = "http://movil.ventascloud.cl/eliminarCategoriaG.php?nombre_categoria="+elCategoria.getText().toString()+"id="+txId.getText().toString()";
+    //public static final String URL_CONSULTA_INGRESOS = "http://movil.ventascloud.cl/conValor.php?id=";
+    //public static final String URL_CONSULTA_DESCRIPCION = "http://movil.ventascloud.cl/conNombre.php?id=";
+    //public static final String URL_LISTA_USUARIOS= "http://movil.ventascloud.cl/ConsultarListaUserCaja.php";
+    //public static final String URL_ELIMINAR_USUARIO= "http://movil.ventascloud.cl/eliminarCuenta.php?id=";
 }

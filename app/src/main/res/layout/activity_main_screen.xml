@@ -22,13 +22,12 @@
 
         <ImageButton
             android:id="@+id/imgBtnDetalleUsuario"
-            android:layout_width="20dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
             android:layout_weight="1"
             android:padding="0dp"
-            android:src="@mipmap/ic_user" />
+            android:background="@drawable/user"
+            />
 
         <TextView
             android:id="@+id/tvSaludoUsuario"
@@ -42,13 +41,11 @@
 
         <ImageButton
             android:id="@+id/imgBtnSalir"
-            android:layout_width="20dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
             android:layout_weight="1"
-            android:padding="0dp"
-            android:src="@mipmap/ic_power_down" />
+            android:background="@drawable/poweroff"
+            />
 
     </LinearLayout>
 
@@ -79,7 +76,7 @@
         android:orientation="horizontal"
         >
         <Button
-            android:drawableLeft="@drawable/ic_ingreso"
+            android:drawableTop="@drawable/ingreso"
             android:id="@+id/btnNuevoIngreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +84,7 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:text="Nuevo Ingreso"
-            android:padding="12dp"
+            android:textSize="8sp"
             android:layout_marginStart="30dp"
             />
 
@@ -97,10 +94,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/red"
             android:text="Nuevo Gasto"
-            android:drawableRight="@drawable/ic_gasto"
+            android:drawableTop="@drawable/gasto"
+            android:textSize="8sp"
             android:textColor="@color/white"
             android:layout_marginEnd="30dp"
-            android:padding="12dp"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -172,7 +169,7 @@
             android:id="@+id/btnReloadInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_reload"
+            android:drawableEnd="@drawable/synchronize"
             android:backgroundTint="@color/grey"
             android:layout_weight="1" />
     </LinearLayout>
