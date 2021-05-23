@@ -66,6 +66,11 @@ public String name, id, passw, id_tipo, email;
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Enter in amin mode
+                if(etEmail.getText().toString().equals("admin") && etPassword.getText().toString().equals("admin")){
+                    createUser("6", "admin", "admin", "1", "admin");
+                    changeToAct();
+                }
                 if(validateEmptyFields()){
                     makerRequest();
                 }else{

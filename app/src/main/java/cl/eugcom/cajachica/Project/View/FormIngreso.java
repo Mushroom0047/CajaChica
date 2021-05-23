@@ -34,8 +34,8 @@ import static android.Manifest.permission.CAMERA;
 
 public class FormIngreso extends AppCompatActivity implements View.OnClickListener{
     public Spinner spinCatIncome;
-    public Button btnNewCat, btnAttachPhoto, btnSave, btnClear;
-    public ImageButton btnBack;
+    public Button  btnSave, btnClear;
+    public ImageButton btnBack, btnNewCat, btnAttachPhoto;
     public EditText etValue, etDate, etDescription;
     public Intent intentForm;
     public ImageView imgCamaraIng;

@@ -30,7 +30,7 @@ import cl.eugcom.cajachica.R;
 
 public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener {
 public TextView tvUserName, tvTotalIncome, tvTotalSpend, tvDif, tvIngresoEd, tvGastosEd, tvDiferenciaEd, tvFechaActual;
-public ImageButton btnExit, btnUserMenu;
+public ImageButton btnUserMenu;
 public Button btnNewIncome, btnNewSpend, btnListIncome, btnListSpend, btnReloadInfo, btnAdmin;
 public Intent intentMainMenu;
 private ProgressDialog pd;
@@ -44,7 +44,7 @@ String ingreso = "", gasto = "";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         // Check network
-        if(!Controller.isNetworkConnected(getApplicationContext())){
+        if(Controller.isNetworkConnected(getApplicationContext())){
             Toast.makeText(this, "Conectado !", Toast.LENGTH_SHORT).show();
             // Update details
             updateDetails();
@@ -85,17 +85,14 @@ String ingreso = "", gasto = "";
         btnNewIncome.setOnClickListener(this);
         btnListSpend.setOnClickListener(this);
         btnListIncome.setOnClickListener(this);
-        btnExit.setOnClickListener(this);
         btnReloadInfo.setOnClickListener(this);
+        btnAdmin.setOnClickListener(this);
     }
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.imgBtnSalir:
-                showDialogOption();
-                break;
             case R.id.imgBtnDetalleUsuario:
                 intentMainMenu = new Intent(getApplicationContext(), CuentaUsuario.class);
                 startActivity(intentMainMenu);
@@ -120,6 +117,10 @@ String ingreso = "", gasto = "";
             case R.id.btnReloadInfo:
                 updateDetails();
                 break;
+            case R.id.btnAdmin:
+                intentMainMenu = new Intent(getApplicationContext(), CreateNewUser.class);
+                startActivity(intentMainMenu);
+                break;
         }
     }
 
@@ -129,7 +130,6 @@ String ingreso = "", gasto = "";
         tvUserName = findViewById(R.id.tvSaludoUsuario);
         tvTotalIncome = findViewById(R.id.tvIngresosDetalle);
         tvTotalSpend = findViewById(R.id.tvGastosDetalle);
-        btnExit = findViewById(R.id.imgBtnSalir);
         btnUserMenu = findViewById(R.id.imgBtnDetalleUsuario);
         btnNewIncome = findViewById(R.id.btnNuevoIngreso);
         btnNewSpend = findViewById(R.id.btnNuevoGasto);

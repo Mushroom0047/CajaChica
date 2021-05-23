@@ -3,7 +3,6 @@ package cl.eugcom.cajachica.Project.Controller;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,7 +42,6 @@ public class Controller {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = connectivityManager.getActiveNetworkInfo();
         if (info == null || !info.isConnected() || !info.isAvailable()) {
-            Log.i("TAG_", info.toString()+"|"+ info.isConnected() + "|"+ info.isAvailable());
             return false;
         }
         return true;
