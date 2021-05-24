@@ -18,4 +18,5 @@ public class ConstantValues {
     public static final String URL_ELIMINAR_USUARIO= "http://movil.ventascloud.cl/eliminarCuenta.php?id=";
 
     public static final String URL_REGISTRO_GASTO = "http://movil.ventascloud.cl/RegistroGasto.php?";
+    public static final String URL_REGISTRO_INGRESO = "http://movil.ventascloud.cl/RegistroIngreso.php?";
 }

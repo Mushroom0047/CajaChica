@@ -141,7 +141,6 @@ public class FormGasto extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.btnGuardarGasto:
                 if(!validateForm()){
-                    Toast.makeText(getApplicationContext(), "Valido", Toast.LENGTH_LONG).show();
                     saveSpend();
                 }else{
                     Toast.makeText(getApplicationContext(), "Faltan datos", Toast.LENGTH_LONG).show();
@@ -256,7 +255,7 @@ public class FormGasto extends AppCompatActivity implements View.OnClickListener
             if (response.trim().equalsIgnoreCase("registra")){
                 Toast.makeText(this,"Se ha registrado",Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this,"Error al subir gasto",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Error al subir gasto",Toast.LENGTH_SHORT).show();
                 Log.i("RESPUESTA: ","Carga exitosa"+response);
             }
 

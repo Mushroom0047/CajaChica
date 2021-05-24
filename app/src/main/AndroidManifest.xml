@@ -17,9 +17,9 @@
     <application
         android:allowBackup="true"
         android:configChanges="orientation|screenSize"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_eugcom"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_eugcom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CajaChica"
         android:usesCleartextTraffic="true">

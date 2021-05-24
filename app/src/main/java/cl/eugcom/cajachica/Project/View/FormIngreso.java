@@ -1,7 +1,6 @@
 package cl.eugcom.cajachica.Project.View;
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -11,10 +10,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,8 +24,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import java.io.IOException;
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import cl.eugcom.cajachica.Project.Controller.ConstantValues;
 import cl.eugcom.cajachica.Project.Controller.Controller;
 import cl.eugcom.cajachica.Project.Model.DatePickerFragment;
 import cl.eugcom.cajachica.R;
@@ -40,7 +47,6 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
     public Intent intentForm;
     public ImageView imgCamaraIng;
 
-    private static final String URL_REG = "http://movil.ventascloud.cl/RegistroIngreso.php?";
     private static final int COD_SELECCIONADO = 10;
     private static final int REQUEST_PERMISION_CAMERA = 101;
     public Bitmap bitmap;
@@ -90,7 +96,7 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
             break;
             case R.id.btnGuardarIngreso:
                 if(!validateForm()){
-                    //sendPostRequest();
+                    saveIncome();
                 }else{
                     Toast.makeText(getApplicationContext(), "Faltan datos", Toast.LENGTH_LONG).show();
                 }
@@ -113,13 +119,10 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
     }
 
     public void showDatePickerDialog(){
-        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                // +1 because January is zero
-                final String selectedDate = day + " / " + (month+1) + " / " + year;
-                etDate.setText(selectedDate);
-            }
+        DatePickerFragment newFragment = DatePickerFragment.newInstance((datePicker, year, month, day) -> {
+            // +1 because January is zero
+            final String selectedDate = day + " / " + (month+1) + " / " + year;
+            etDate.setText(selectedDate);
         });
 
         newFragment.show(getSupportFragmentManager(), "datePicker");
@@ -249,28 +252,28 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
             return bitmap;
         }
     }
+    private void saveIncome() {
+        String url = ConstantValues.URL_REGISTRO_INGRESO;
 
-   /* public void sendPostRequest(){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REG, response -> {
-            Toast.makeText(getApplicationContext(),"Se ha registrado con exito",Toast.LENGTH_SHORT).show();
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, url, response -> {
+            Toast.makeText(this,"Se ha registrado con exito",Toast.LENGTH_SHORT).show();
             if (response.trim().equalsIgnoreCase("registra")){
-                Toast.makeText(getApplicationContext(),"Se ha registrado con exito",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Se ha registrado",Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Error al subir ingreso",Toast.LENGTH_SHORT).show();
+                Log.i("RESPUESTA: ","Carga exitosa"+response);
             }
-        }, error -> Toast.makeText(getApplicationContext(),"No se ha podido conectar",Toast.LENGTH_SHORT).show()){
+
+        }, error -> Toast.makeText(this,"No se ha podido conectar",Toast.LENGTH_SHORT).show()){
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                String nombre =etDescription.getText().toString().trim();
-                String id=Controller.getUser().getId();
-                String id_categoria=idCategoria;
-                String Valor=valor.getText().toString();
-                String fecha=Fecha.getText().toString();
-                String imagen=convertirImgString(bitmap);
-                String fechaHora=fechaAct.getText().toString();
-
+            protected Map<String, String> getParams() {
+                String nombre = etDescription.getText().toString().trim();;
+                String id = Controller.getUser().getId();
+                String id_categoria = "";
+                String Valor = etValue.getText().toString().trim();
+                String fecha = etDate.getText().toString().trim();
+                String imagen = convertirImgString(bitmap);
+                String fechaHora = etDate.getText().toString();
 
                 Map<String,String> parametros=new HashMap<>();
                 parametros.put("id",id);
@@ -284,6 +287,15 @@ public class FormIngreso extends AppCompatActivity implements View.OnClickListen
                 return parametros;
             }
         };
+        //request.add(stringRequest);
         Controller.getRequestQueue().add(stringRequest);
-    }*/
+    }
+    private String convertirImgString(Bitmap bitmap) {
+        ByteArrayOutputStream array = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, array);
+        byte[] imagenByte = array.toByteArray();
+        String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
+
+        return imagenString;
+    }
 }
